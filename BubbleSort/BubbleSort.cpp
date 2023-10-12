@@ -11,28 +11,29 @@ enum ORDER {
 };
 
 void Show(int* BOX, int size);
-void AscendingOrder(int* BOX, int size);
-void DescendingOrder(int* BOX, int size);
+void AscendingOrder(int* BOX, int size);//昇順
+void DescendingOrder(int* BOX, int size);//降順
 
 const int maxNum = 99;
 
 int main()
 {
-    int order;
+    int order = 0;//昇順か降順か
+    int size = 0;//ソートする値の数
 
     do {
         cout << "並べる順番を選んでください\n1:昇順　2:降順　＞　" << flush;
         cin >> order;
     } while (order < 1 || 2 < order);
 
-    srand((unsigned int)time(NULL));
-    int size = 0;
     cout << "値の数を入力せよ　＞　" << flush;
     cin >> size;
 
     int* box = new int[size];
 
     if (box != NULL) {
+        //箱内を初期化
+        srand((unsigned int)time(NULL));
         for (int i = 0; i < size; ++i) {
             box[i] = rand() % maxNum + 1;
         }
