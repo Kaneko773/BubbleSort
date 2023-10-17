@@ -51,14 +51,14 @@ int main()
         cout << "ソート後：" << flush;
         Show(box, size);
 
-        delete[] box;
+        if (box != NULL)delete[] box;
     }
 }
 
 void AscendingOrder(int* BOX, int size)
 {
     for (int i = size; i > 1; --i) {
-        for (int j = 0; j < size - 1; ++j) {
+        for (int j = 0; j < i - 1; ++j) {
             if (BOX[j] > BOX[j + 1]) {
                 swap(BOX[j], BOX[j + 1]);
             }
@@ -69,7 +69,7 @@ void AscendingOrder(int* BOX, int size)
 void DescendingOrder(int* BOX, int size)
 {
     for (int i = size; i > 1; --i) {
-        for (int j = 0; j < size - 1; ++j) {
+        for (int j = 0; j < i - 1; ++j) {
             if (BOX[j] < BOX[j + 1]) {
                 swap(BOX[j], BOX[j + 1]);
             }
